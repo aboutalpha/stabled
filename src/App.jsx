@@ -29,10 +29,11 @@ class App extends Component {
     console.log(prompt);
     console.log(process.env.NODE_ENV);
 
-    const api =
-      process.env.NODE_ENV === 'development'
-        ? '/test/stabled'
-        : 'https://unuqz0uxn9.execute-api.us-east-1.amazonaws.com/test/stabled';
+    const api = 'https://unuqz0uxn9.execute-api.us-east-1.amazonaws.com/test/stabled';
+    // const api =
+    //   process.env.NODE_ENV === 'development'
+    //     ? '/test/stabled'
+    //     : 'https://unuqz0uxn9.execute-api.us-east-1.amazonaws.com/test/stabled';
 
     const data = { data: e.target.searchQuery.value };
     console.log(data);
@@ -44,6 +45,7 @@ class App extends Component {
     })
       .then((response) => {
         console.log(response);
+        console.log(response.data.body);
         this.setState({ imgSrc: response.data.body });
 
         setTimeout(() => {
